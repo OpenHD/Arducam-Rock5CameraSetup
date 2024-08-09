@@ -216,7 +216,7 @@ if __name__ == '__main__':
     uname_version = sh_("uname -r | grep -oP '\d+\.\d+\.\d+' | head -n1").strip()
 
     Arducam_RK_driver_status = check_folder("Arducam_RK_driver")    
-    if uname_version != "5.10.160":
+    if uname_version != "5.10.110-radxa":
         deploy_camera_driver(device_model)
     install_dtbo(device_model, camera_name)
     change_resolution(resolution)
