@@ -15,10 +15,10 @@ jobs:
       - name: Build
         run: |
           sudo gem install fpm
-          mkdir arducam
-
+          mkdir /arducam/opt/cams
+          cp -r * /arducam/opt/cams/
           VERSION="0.1-$(date -d '+1 hour' +'%m-%d-%Y--%H-%M-%S')"
-          fpm -a arm64 -s dir -t deb -n arducam-camera -v "$VERSION" -C arducam -p openhd_rock5cams_VERSION_ARCH.deb
+          fpm -a arm64 -s dir -t deb -n arducam-camera -v "$VERSION" -C /arducam -p openhd_rock5cams_VERSION_ARCH.deb
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
