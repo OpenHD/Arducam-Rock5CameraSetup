@@ -15,8 +15,8 @@ jobs:
       - name: Build
         run: |
           sudo gem install fpm
-          mkdir -p /arducam/opt/cams
-          cp -r * /arducam/opt/cams/
+          sudo mkdir -p /arducam/opt/cams
+          sudo cp -r * /arducam/opt/cams/
           VERSION="0.2-$(date -d '+1 hour' +'%m-%d-%Y--%H-%M-%S')"
           fpm -a arm64 -s dir -t deb -n arducam-camera -v "$VERSION" -C /arducam -p openhd_rock5cams_VERSION_ARCH.deb
 
